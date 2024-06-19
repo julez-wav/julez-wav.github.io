@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JULEZ.WAV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, rgb(37, 67, 54), rgb(107, 138, 122), rgb(183, 181, 151), rgb(218, 211, 190));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: rgb(218, 211, 190);
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .side-panel {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(37, 67, 54, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .side-panel a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: rgb(218, 211, 190);
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-panel a:hover {
+            background-color: rgba(107, 138, 122, 0.7);
+        }
+
+        .side-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .eye-tab {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 200px;
+            background: radial-gradient(circle at 50% 50%, rgba(218, 211, 190, 0.8) 20%, rgba(37, 67, 54, 0.9) 50%, rgba(0, 0, 0, 0.7) 70%);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .eye-tab::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+            border-radius: 50%;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            font-size: 120px;
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            color: rgb(218, 211, 190);
+            margin: 50px 0;
+            animation: fadeIn 3s ease-out;
+        }
+
+        p {
+            color: rgb(218, 211, 190);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sidePanel" class="side-panel">
+    <a href="javascript:void(0)" class="close-btn" onclick="closePanel()">&times;</a>
+    <a href="#home">HOME</a>
+    <a href="#film">FILM</a>
+    <a href="#music">MUSIC</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+</div>
+
+<div class="eye-tab" onclick="openPanel()"></div>
+
+<div class="main-content">
+    <section id="home">
+        <h2>HOME</h2>
+        <p>Welcome to the home section.</p>
+    </section>
+    <section id="film">
+        <h2>FILM</h2>
+        <p>Information about films.</p>
+    </section>
+    <section id="music">
+        <h2>MUSIC</h2>
+        <p>Information about music.</p>
+    </section>
+    <section id="about">
+        <h2>ABOUT</h2>
+        <p>About us section.</p>
+    </section>
+    <section id="contact">
+        <h2>CONTACT</h2>
+        <p>Contact information.</p>
+    </section>
+</div>
+
+<script>
+    function openPanel() {
+        document.getElementById("sidePanel").style.width = "250px";
+    }
+
+    function closePanel() {
+        document.getElementById("sidePanel").style.width = "0";
+    }
+</script>
+
+</body>
+</html>
+
